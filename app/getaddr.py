@@ -1,9 +1,8 @@
 #!/usr/bin/env python
 """
-Application: pyconvcred
+Application: find_precinct
 Author: Matt Pettis
-Description: Main Flask application that handles the routing of pages and has utility functions
-to help with that.
+Description: Main Flask application that connects up people and precincts.
 """
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, \
