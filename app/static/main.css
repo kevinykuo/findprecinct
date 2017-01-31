@@ -1,0 +1,10 @@
+table.main, th.main, td.main {
+    border-collapse: collapse;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+tr.IN{ background: #75FA75;}
+/*tr.OUT{ background: #FA7575;}*/
+tr.WAIT{ background: #FAFA75;}
+

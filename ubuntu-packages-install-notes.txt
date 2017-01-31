@@ -1,0 +1,52 @@
+mpettis@ubuntu:~$ pip install gunicorn
+The program 'pip' is currently not installed. You can install it by typing:
+sudo apt install python-pip
+pip install --upgrade pip
+
+# Then
+pip install gunicorn
+
+Running:
+With a hello app like so:
+# http://gunicorn.org/
+
+  $ cat myapp.py
+    def app(environ, start_response):
+        data = b"Hello, World!\n"
+        start_response("200 OK", [
+            ("Content-Type", "text/plain"),
+            ("Content-Length", str(len(data)))
+        ])
+        return iter([data])
+
+Need to set up port 8000 forwarding on the VM:
+# http://stackoverflow.com/questions/9537751/virtualbox-port-forward-from-guest-to-host
+
+    Connect to the Guest and find out the ip address:
+
+    ifconfig 
+    example of result (ip address is 10.0.2.15):
+
+    eth0      Link encap:Ethernet  HWaddr 08:00:27:AE:36:99
+              inet addr:10.0.2.15  Bcast:10.0.2.255  Mask:255.255.255.0
+    Go to Vbox instance window -> Menu -> Network adapters:
+
+    adapter should be NAT
+    click on "port forwarding"
+    insert new record (+ icon)
+    for host ip enter 127.0.0.1, and for guest ip address you got from prev. step (in my case it is 10.0.2.15)
+    in your case port is 8000 - put it on both, but you can change host port if you prefer
+    Go to host system and try it in browser:
+
+    http://127.0.0.1:8000
+    or your network ip address (find out on the host machine by running: ipconfig).
+
+
+
+Then start gunicorn in the folder with myapp.py as:
+gunicorn -w 4 -b 0.0.0.0:8000 myapp:app
+
+Url to reach the service from local windows (host) machine):
+  http://127.0.0.1:8000/
+
+
