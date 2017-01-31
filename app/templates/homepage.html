@@ -5,32 +5,35 @@
 </head>
 <body>
 
-<h1>Enter name and address to find your precinct</h1>
+  <h1>Enter name and address to find your precinct</h1>
 
-{# Option button to go back to main page. #}
-<form name="get_precinct" action="/get_precinct/">
-  <table>
-    <tbody>
-      <tr><td>First Name<td>
-          <td><input type="text" name="fname"></td></tr>
+  {# Option button to go back to main page. #}
+  <form name="get_precinct" action="/get_precinct/">
+    <table>
+      <tbody>
+        <tr><td>First Name<td>
+            <td><input type="text" name="fname"></td></tr>
 
-      <tr><td>Last Name<td>
-          <td><input type="text" name="lname"></td></tr>
+        <tr><td>Last Name<td>
+            <td><input type="text" name="lname"></td></tr>
 
-      <tr><td>Address<td>
-          <td><input type="text" name="addr"></td></tr>
+        <tr><td>Address<td>
+            <td><input type="text" name="addr"></td></tr>
 
-      <tr><td>City<td>
-          <td><input type="text" name="city"></td></tr>
+        <tr><td>City<td>
+            <td><input type="text" name="city"></td></tr>
 
-      <tr><td>Zip Code<td>
-          <td><input type="text" name="zip"></td></tr>
-    </tbody>
-  </table>
+        <tr><td>Zip Code<td>
+            <td><input type="text" name="zip"></td></tr>
 
-  <input type="submit" value="Get Precinct">
-  <input type="hidden" name="has_person_info" value=1>
-</form>
+        <tr><td>Email<td>
+            <td><input type="text" name="email"></td></tr>
+      </tbody>
+    </table>
+
+    <input type="submit" value="Get Precinct">
+    <input type="hidden" name="has_person_info" value=1>
+  </form>
 
 </body>
 

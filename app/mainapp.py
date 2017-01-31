@@ -43,10 +43,7 @@ app.config.from_object(__name__)
   ## Just a trial setup
 @app.route('/')
 def homepage():
-  # payload = {'location': '3725 34th ave s 55406' }
-  # r = requests.get('http://www.gis.leg.mn/mapserver/districtsxml/geocode.php', params=payload)
   # return 'Hello, World!'
-  # return(r.text)
   # return render_template('homepage.html', tdict={})
   return render_template('homepage.html')
 
@@ -59,12 +56,21 @@ def get_precinct():
 
     # Build location from the address parameters
   payload = {'location': "%s %s" % (getp['addr'], getp['zip']) }
-  r = requests.get('http://www.gis.leg.mn/mapserver/districtsxml/geocode.php', params=payload)
+  try:
+    r = requests.get('http://www.gis.leg.mn/mapserver/districtsxml/geocode.php', params=payload)
+  except:
+    tdict['error'] = 'Could not retrieve address from GIS server.'
+    return render_template('error.html', tdict=tdict)
+
   tdict['xml'] = r.text
 
     ## Find precinct name, embedded in xml '<name>' tag
-  rx = re.match(r'.*<name>(.*?)</name>.*', r.text, re.DOTALL)
-  tdict['prct'] = rx.group(1)
+  try:
+    rx = re.match(r'.*<name>(.*?)</name>.*', r.text, re.DOTALL)
+    tdict['prct'] = rx.group(1)
+  except:
+    tdict['error'] = 'Could not parse precinct from GIS server response.'
+    return render_template('error.html', tdict=tdict)
 
   return render_template('get_precinct.html', tdict=tdict)
 
