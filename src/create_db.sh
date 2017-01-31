@@ -4,7 +4,7 @@
 
 dir_proj=/home/mpettis/vmshared/find-precinct
 dir_db=${dir_proj}/dat
-file_db=${dir_db}/ccred.db
+file_db=${dir_db}/findprecinct.db
 sql_setupfile=${dir_proj}/src/setup_db.sql
 
 if [[ -e $file_db ]]; then
