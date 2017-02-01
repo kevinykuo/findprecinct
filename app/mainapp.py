@@ -108,6 +108,32 @@ def dbinsert_user(qparam):
 
 
 
+def lod2htmltable(lod):
+  """Takes a list of dicts, assume dicts have mostly common keys, converts html representation of data in a table."""
+    # Get list of keys, sorted
+  ks = sorted(set([k for d in lod for k in d.keys()]))
+
+    # Construct headers
+  th = "".join(["<th>%s</th>" % k for k in ks])
+
+    # Construct data rows
+  dr = ["".join(["<td>%s</td>" % d.get(k, "-") for k in ks]) for d in lod]
+  dr = "\n".join(["<tr>%s</tr>" % e for e in dr])
+
+    # Construct final table
+  rv = "\n".join([
+          "<table class=\"main\">"
+          , "<thead>"
+          , th
+          , "</thead>"
+          , "<tdata>"
+          , dr
+          , "</tdata>"
+          ,"</table>"
+        ])
+    
+  return(rv)
+
 
 
 ################################################################################
@@ -160,7 +186,12 @@ def get_precinct():
   return render_template('get_precinct.html', tdict=getp)
 
 
-
+@app.route('/show_db/')
+def show_db():
+  tdict = {}
+  tdict['people'] = query_db("select * from people")
+  tdict['table'] = lod2htmltable(tdict['people'])
+  return render_template('show_db.html', tdict=tdict)
 
 
 

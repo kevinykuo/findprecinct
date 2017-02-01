@@ -1,7 +1,31 @@
-table.main, th.main, td.main {
+/*table.main, th.main, td.main {
     border-collapse: collapse;
     border: 1px solid black;
     padding: 5px;
+}
+*/
+/*http://www.textfixer.com/tutorials/css-tables.php*/
+table.main {
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+}
+table.main th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table.main td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
 }
 
 tr.IN{ background: #75FA75;}
