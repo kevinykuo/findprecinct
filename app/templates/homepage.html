@@ -1,39 +1,80 @@
 <!doctype html>
+<html>
 <head>
     <title>Find your precinct</title>
-    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='main.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-
-  <h1>Enter name and address to find your precinct</h1>
-
-  {# Option button to go back to main page. #}
-  <form name="get_precinct" action="/get_precinct/">
-    <table>
-      <tbody>
-        <tr><td>First Name<td>
-            <td><input type="text" name="fname"></td></tr>
-
-        <tr><td>Last Name<td>
-            <td><input type="text" name="lname"></td></tr>
-
-        <tr><td>Address<td>
-            <td><input type="text" name="addr"></td></tr>
-
-        <tr><td>City<td>
-            <td><input type="text" name="city"></td></tr>
-
-        <tr><td>Zip Code<td>
-            <td><input type="text" name="zip"></td></tr>
-
-        <tr><td>Email<td>
-            <td><input type="text" name="email"></td></tr>
-      </tbody>
-    </table>
-
-    <input type="submit" value="Get Precinct">
-    <input type="hidden" name="has_person_info" value=1>
-  </form>
+    <div class="container header">
+        <img src="assets/logo.png">
+    </div>
+    <div class="container main">
+        <div class="main-nav">
+            <h1 class="header-info">Enter your address to register for caucus on April 4th</h1>
+        </div>
+        <div class="main-content">
+            <form name="get_precinct" action="/get_precinct/">
+                <div class="row">
+                    <div class="column">
+                        <label>First name
+                            <input 
+                                autocomplete="given-name"
+                                type="text" />
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label>Last name
+                            <input 
+                                type="text" 
+                                autocomplete="family-name"/>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <label>Email
+                            <input 
+                                type="email"
+                                autocomplete="email" />
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label>Address
+                            <input 
+                                type="text"
+                                autocomplete="street-address" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        <label>City
+                            <input 
+                                type="text"
+                                autocomplete="city" />
+                        </label>
+                    </div>
+                    <div class="column">
+                        <label>Zip Code
+                            <input 
+                                type="text"
+                                autocomplete="postal-code" />
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="column">
+                        &nbsp;
+                    </div>
+                    <div class="column">
+                        <button class="submit-button" type="submit" value="Get Precinct">Register Now</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 </body>
 
+</html>
