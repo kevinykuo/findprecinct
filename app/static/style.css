@@ -1,0 +1,130 @@
+html,
+body {
+    margin: 0;
+}
+
+body {
+    background: url("body-bg.png") no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Open Sans', Arial, sans-serif
+}
+
+input {
+    font-weight: 100;
+    padding: 6px;
+    display: block;
+    border-radius: 3px;
+    border: 1px solid #c3c3c3;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 12px;
+    box-shadow: inset 0 3px 0px #f1f1f1;
+    transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+button {
+    font-size: 14px;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: center;
+    border-radius: 3px;
+    transition: none;
+    outline: none;
+    display: inline-block;
+    display: inline-block;
+    border: 1px solid;
+}
+
+label {
+    font-weight: 400;
+    font-size: 14px;
+    margin-left: 10%;
+}
+
+.container {
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    max-width: 964px;
+}
+
+.main {
+    min-height: 450px;
+    background-color: #fff;
+    box-shadow: 0 0 10px #bbbbbb;
+    padding: 0;
+}
+
+@media (max-width: 600px) {
+    .main {
+        min-height: 800px;
+    }
+}
+
+.main-nav {
+    background: linear-gradient(#1F5D8E, #0E315E);
+    height: 50px;
+}
+
+@media (max-width: 600px) {
+    .main-nav {
+        height: 100px;
+    }
+}
+
+.header-info {
+    color: #fff;
+    margin-left: 15px;
+    vertical-align: text-bottom;
+    font-size: 16pt;
+    line-height: 2.4;
+    font-weight: 600;
+}
+
+.main-content {
+    padding: 20px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row {
+    display: block;
+}
+
+.column {
+    width: 50%;
+    float: left;
+}
+
+@media (max-width: 600px) {
+    .column {
+        width: 100%;
+        float: left;
+    }
+}
+
+.submit-button {
+    font-size: 18pt;
+    float: right;
+    background-color: #00AAE5;
+    border-color: #0097cc;
+    color: #fff;
+    padding: 10px;
+    margin-left: 10px;
+    margin-right: 40px;
+}
+
+.submit-button:hover {
+    background-color: #CE382F;
+    border-color: #bc3029;
+}
