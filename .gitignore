@@ -1,2 +1,5 @@
 *.pyc
 *.un~
+.idea
+venv
+__pycache__

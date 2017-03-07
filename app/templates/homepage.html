@@ -7,69 +7,52 @@
 </head>
 <body>
     <div class="container header">
-        <img src="assets/logo.png">
+        <img src="/static/logo.png">
     </div>
     <div class="container main">
         <div class="main-nav">
             <h1 class="header-info">Enter your address to register for caucus on April 4th</h1>
         </div>
-        <div class="main-content">
-            <form name="get_precinct" action="/get_precinct/">
+        <div class="main-content {% if tdict.error %}error{% endif %}">
+          {% if tdict.error %}
+            <div class="error-message">
+              <h4>There was an error processing your address. Please try again!</h4>
+              <pre>{% if tdict.debug %}{{ tdict.e }}{% endif %}</pre>
+            </div>
+          {% endif %}
+            <form name="get_precinct" action="/get_precinct/" method="get">
                 <div class="row">
-                    <div class="column">
-                        <label>First name
-                            <input 
-                                autocomplete="given-name"
-                                type="text" />
-                        </label>
-                    </div>
-                    <div class="column">
-                        <label>Last name
-                            <input 
-                                type="text" 
-                                autocomplete="family-name"/>
-                        </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column">
-                        <label>Email
-                            <input 
-                                type="email"
-                                autocomplete="email" />
-                        </label>
-                    </div>
-                    <div class="column">
+                    <div class="container">
+
                         <label>Address
-                            <input 
+                            <input
+                                {% if tdict.form %}value="{{ tdict.form.addr }}"{% endif %}
                                 type="text"
+                                name="addr"
+                                required
                                 autocomplete="street-address" />
                         </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column">
-                        <label>City
-                            <input 
+                        <label>Address 2
+                            <input
+                                {% if tdict.form %}value="{{ tdict.form.address2 }}"{% endif %}
                                 type="text"
-                                autocomplete="city" />
+                                name="address2"
+                                autocomplete="street-address 2" />
                         </label>
-                    </div>
-                    <div class="column">
+
                         <label>Zip Code
-                            <input 
+                            <input
+                                {% if tdict.form %}value="{{ tdict.form.zip }}"{% endif %}
                                 type="text"
+                                name="zip"
+                                required
                                 autocomplete="postal-code" />
                         </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="column">
-                        &nbsp;
-                    </div>
-                    <div class="column">
+
                         <button class="submit-button" type="submit" value="Get Precinct">Register Now</button>
+
                     </div>
+
                 </div>
             </form>
         </div>
