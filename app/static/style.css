@@ -12,20 +12,19 @@ body {
     font-family: 'Open Sans', Arial, sans-serif
 }
 
+
 input {
     font-weight: 100;
     padding: 6px;
     display: block;
     border-radius: 3px;
     border: 1px solid #c3c3c3;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 5px;
     margin-bottom: 12px;
     box-shadow: inset 0 3px 0px #f1f1f1;
     transition: box-shadow 0.45s, border-color 0.45s ease-in-out;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
+    width:100%;
 }
 
 button {
@@ -46,7 +45,6 @@ button {
 label {
     font-weight: 400;
     font-size: 14px;
-    margin-left: 10%;
 }
 
 .container {
@@ -115,16 +113,27 @@ label {
 
 .submit-button {
     font-size: 18pt;
-    float: right;
     background-color: #00AAE5;
     border-color: #0097cc;
     color: #fff;
-    padding: 10px;
-    margin-left: 10px;
-    margin-right: 40px;
+    padding: 20px;
+    margin-top:40px;
+    display: block;
+    width: 100%;
 }
+
 
 .submit-button:hover {
     background-color: #CE382F;
     border-color: #bc3029;
+}
+
+
+.error input{
+    border-color: #800b16;
+}
+
+.error .error-message {
+    color: #cc0000;
+    margin-left:20px;
 }
