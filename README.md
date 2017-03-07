@@ -1,16 +1,20 @@
 # findprecinct
 
-1. if you dont have python3 installed, please do so.  if you are of the homebrew persuasion you can do it that way, otherwise you can build from source
+findprecint uses flask and python 2.7.  the general gist of it is to allow a user to input their address/zip code and this app looks up their address via a GIS/MN Legislature API to return a minneapolis precinct.  The app then looks up that precinct from a csv file of a corresponding EventBrite caucus event, and redirects the user to that page.
 
-2. if you can type `python3` from the command line and get something that doesn't look like an error, proceed
+## development setup
 
-3. cd into the base app directory
+1. you should have python 2.7(ish) installed, but to double check, type `python` and see what happens
 
-4. create a virtual environment.  `python3 -m venv venv`
+2. cd into the base app directory
 
-5. activate your virtual environment `source venv/bin/activate`
+3. you will need to install pip if you don't have it. use the supplied get-pip.py script: `python get-pip.py`
 
-6. now python3 is simply named `python`
+4. after you have pip, you'll need to install virtualenv: `pip install virtualenv` or `sudo pip install virtualenv`
+
+5. create a virtual environment.  `virtualenv venv`
+
+6. activate your virtual environment `source venv/bin/activate`
 
 7. now install requirements.  `pip install -r requirements.txt` or `sudo pip install -r requirements.txt`
 
@@ -23,3 +27,19 @@
 11. you can now access the site at `http://127.0.0.1:8000`
 
 12. you can ctrl-c to kill the server.  to leave your virtual environment type `deactivate`
+
+
+## production setup
+
+1. no need for virtual environment on server ( unless multiple apps running with conflicting python/libraries)
+
+2. just need pip: `python get-pip.py`
+
+3. install requirements on server `pip install -r requirements.txt`
+
+4. perhaps some other things?
+
+5. the run command is:
+```
+sudo nohup /home/mpettis/.local/bin/gunicorn -w 4 -b 0.0.0.0:80 mainapp:app > gunicorn.log 2>&1 &
+```
