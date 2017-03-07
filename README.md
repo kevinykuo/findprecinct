@@ -31,9 +31,15 @@ findprecint uses flask and python 2.7.  the general gist of it is to allow a use
 
 ## production setup
 
-1. insert server setup information here :) 
+1. no need for virtual environment on server ( unless multiple apps running with conflicting python/libraries)
 
-2. the run command is:
+2. just need pip: `python get-pip.py`
+
+3. install requirements on server `pip install -r requirements.txt`
+
+4. perhaps some other things?
+
+5. the run command is:
 ```
 sudo nohup /home/mpettis/.local/bin/gunicorn -w 4 -b 0.0.0.0:80 mainapp:app > gunicorn.log 2>&1 &
 ```
